@@ -9,3 +9,4 @@ app.listen(PORT,()=>{
     console.log("Server is Listing ")
 })
 app.use("/api/auth",require("./Routes/authRoutes"))
+app.use("/api/v1/",require("./Routes/blogRoutes"))
