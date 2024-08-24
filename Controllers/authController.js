@@ -1,9 +1,9 @@
 const User = require("../Models/userModel");
 
 const registerUser = async (req, res) => {
-    const { email, password } = req.body;
+    const {name, email, password } = req.body;
 
-    if (!email || !password) {
+    if (!name ||!email || !password) {
         return res.status(400).json({ message: "All fields are mandatory" });
     }
 
@@ -15,6 +15,7 @@ const registerUser = async (req, res) => {
         }
 
         const user = await User.create({
+            name,
             email,
             password
         });
