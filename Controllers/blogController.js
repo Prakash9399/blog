@@ -40,10 +40,10 @@ const getPostById = async (req, res) => {
 const createPost = async (req, res) => {
   try {
       const { title, description } = req.body;
-      const userId = req.user.id; // Extract the user ID from the request object
+      const username = req.user.name; // Extract the username from the request object
 
       // Create a new blog post
-      const newPost = await Blog.create({ userId, title, description });
+      const newPost = await Blog.create({ username, title, description });
 
       res.status(201).json(newPost);
   } catch (error) {
