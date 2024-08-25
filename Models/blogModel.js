@@ -17,6 +17,7 @@ const blogSchema = new mongoose.Schema({
   timestamps: true
 });
 
-const Blog = mongoose.model('Blog', blogSchema);
+// Check if the model is already compiled, otherwise compile it
+const Blog = mongoose.models.Blog || mongoose.model('Blog', blogSchema);
 
 module.exports = Blog;
