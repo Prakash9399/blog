@@ -25,16 +25,19 @@ const getPostById=async (req,res) => {
       }
 }
 
-// Create a new post
-const createPost= async(req,res)=>{
-    try {
-        const { userId, title, description } = req.body;
-        const newPost = await Blog.create({ userId, title, description });
-        res.status(201).json(newPost);
-      } catch (error) {
-        res.status(500).json({ message: "Server Error", error: error.message });
-      }
-}
+const createPost = async (req, res) => {
+  try {
+      const { title, description } = req.body;
+      const userId = req.user.id; // Extract the user ID from the request object
+
+      // Create a new blog post
+      const newPost = await Blog.create({ userId, title, description });
+
+      res.status(201).json(newPost);
+  } catch (error) {
+      res.status(500).json({ message: "Server Error", error: error.message });
+  }
+};
 
 // Update an existing post by ID
 const updatePostById = async (req, res) => {
