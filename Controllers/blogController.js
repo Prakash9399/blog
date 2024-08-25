@@ -11,6 +11,7 @@ const getPost=async (req,res) => {
       }
 }
 
+const mongoose = require('mongoose');
 
 
 const getPostById = async (req, res) => {
