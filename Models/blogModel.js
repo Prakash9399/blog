@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const blogSchema = new mongoose.Schema({
-  userId: {
+  user: {
     type: String,
     required: true,
   },
@@ -17,7 +17,6 @@ const blogSchema = new mongoose.Schema({
   timestamps: true
 });
 
-// Check if the model is already compiled, otherwise compile it
-const Blog = mongoose.models.Blog || mongoose.model('Blog', blogSchema);
+const Blog = mongoose.model('Blog', blogSchema);
 
 module.exports = Blog;
